@@ -10,6 +10,8 @@ import {
 import Home from './Home';
 import Contact from './Contact';
 import About from './About'
+import Services from './Services';
+import NotFound from './NotFound';
 
 export default class NavbarComp extends Component {
     render() {
@@ -18,7 +20,7 @@ export default class NavbarComp extends Component {
                 <div>
 
                     <Navbar bg="dark" variant={"dark"} expand="lg">
-                        <Navbar.Brand href="#">Navbar Demo Arjun Codes</Navbar.Brand>
+                        <Navbar.Brand href="#">EduSkills</Navbar.Brand>
                         <Navbar.Toggle aria-controls="navbarScroll" />
                         <Navbar.Collapse id="navbarScroll">
                             <Nav
@@ -27,8 +29,9 @@ export default class NavbarComp extends Component {
                                 navbarScroll
                             >
                                 <Nav.Link as={Link} to="/home">Home</Nav.Link>
+                                <Nav.Link as={Link} to="/services">Services</Nav.Link>
                                 <Nav.Link as={Link} to="/about">About</Nav.Link>
-                                <Nav.Link as={Link} to="/contact">Contact</Nav.Link>
+                                <Nav.Link as={Link} to="/contact">Contact Us</Nav.Link>
 
                             </Nav>
 
@@ -43,8 +46,14 @@ export default class NavbarComp extends Component {
                         <Route path="/contact">
                             <Contact />
                         </Route>
-                        <Route path="/">
+                        <Route path="/home">
                             <Home />
+                        </Route>
+                        <Route exact path="/services">
+                            <Services />
+                        </Route>
+                        <Route path="*">
+                            <NotFound />
                         </Route>
                     </Switch>
                 </div>
